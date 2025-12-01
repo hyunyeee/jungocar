@@ -6,6 +6,28 @@ import { Navbar } from "@/components/Navbar";
 import Phone from "@/components/Phone";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import Image from "next/image";
+import Link from "next/link";
+
+const banners = [
+  {
+    subtitle: "차 한 대 이상의 가치를 전합니다.",
+    title: "이차탈래?",
+    desc: "빠르고, 쉽고, 확실한 중고차 거래의 새로운 기준",
+    image: "/images/main0.webp",
+  },
+  {
+    subtitle: "저신용자를 위한",
+    title: "자체 할부 서비스 제공",
+    desc: "부담을 더는 최선의 해결책을 제공합니다.",
+    image: "/images/main1.webp",
+  },
+  {
+    subtitle: "방문부터 계약까지,",
+    title: "하루만에 신속하게.",
+    desc: "불필요한 절차를 최소화하여 고객님의 소중한 시간을 지킵니다.",
+    image: "/images/main2.webp",
+  },
+];
 
 const chats = [
   `성능 점검 기록부 100% 공개!\n믿고 바로 계약했습니다.`,
@@ -21,12 +43,29 @@ export function MainClient() {
       <Navbar />
       <SectionWrapper type="white">
         <Carousel
-          data={["1", "2", "3"]}
-          // autoInterval={8000}
-          height={400}
-          renderBlock={(item, idx) => (
+          data={banners}
+          autoInterval={8000}
+          height={500}
+          renderBlock={(item) => (
             <section className="relative h-full w-full overflow-hidden rounded-md rounded-tr-3xl rounded-bl-3xl bg-transparent">
-              <div className="bg-main h-full w-full"></div>
+              {/* 백그라운드 이미지 */}
+              <Image src={item.image} alt={item.title} fill className="-z-20 object-cover" />
+              {/* 딤드 */}
+              <div className="pointer-events-none absolute inset-0 -z-10 h-full w-full bg-black/80" />
+              {/* 콘텐츠 */}
+              <div className="flex h-full w-full flex-col items-start justify-center p-8 px-24">
+                <p className="mb-2 text-start text-2xl font-extrabold tracking-tight whitespace-break-spaces text-white">
+                  {item.subtitle}
+                </p>
+                <p className="text-main mb-4 text-6xl font-extrabold">{item.title}</p>
+                <p className="mb-10 text-lg font-medium text-gray-200">{item.desc}</p>
+                <Link
+                  href="/"
+                  className="bg-main z-10 inline-block rounded px-4 py-2 text-lg font-semibold text-white transition-transform hover:scale-95"
+                >
+                  10초만에 상담신청
+                </Link>
+              </div>
             </section>
           )}
         />
