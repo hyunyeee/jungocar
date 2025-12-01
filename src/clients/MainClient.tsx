@@ -12,7 +12,7 @@ import Link from "next/link";
 const banners = [
   {
     subtitle: "차 한 대 이상의 가치를 전합니다.",
-    title: "이차탈래?",
+    title: "승계랜드",
     desc: "빠르고, 쉽고, 확실한 중고차 거래의 새로운 기준",
     image: "/images/main0.webp",
   },
@@ -83,12 +83,12 @@ export function MainClient() {
       <SectionWrapper type="gray">
         <p className="text-main mb-2 text-lg font-medium">허위매물일까 걱정되시나요?</p>
         <h2 className="mb-10 text-4xl font-extrabold">
-          <span className="text-main">이차탈래?</span>는 신뢰를 판매합니다.
+          <span className="text-main">승계랜드</span>는 신뢰를 판매합니다.
         </h2>
 
         <p className="mb-0.5 text-lg text-gray-700">첫 차 구매의 설렘이 걱정으로 바뀌지 않도록</p>
         <p className="mb-0.5 text-lg text-gray-700">
-          <strong>이차탈래?</strong> 는 100% 투명한 정보 공개와
+          <strong>승계랜드</strong> 는 100% 투명한 정보 공개와
         </p>
         <p className="mb-8 text-lg text-gray-700">1:1 전담 매니저 동행으로 신뢰를 약속합니다.</p>
         <Image
@@ -107,7 +107,7 @@ export function MainClient() {
           고객 만족도 <strong>99%</strong> 달성
         </p>
         <h2 className="mb-10 text-4xl font-extrabold">
-          <span className="text-main">이차탈래?</span>를 선택하시는 이유
+          <span className="text-main">승계랜드</span>를 선택하시는 이유
         </h2>
         <Phone>
           <div className="min-h-full w-full space-y-4 bg-white px-5 py-10">
@@ -144,7 +144,7 @@ export function MainClient() {
         </p>
 
         <p className="mb-0.5 text-lg text-gray-700">
-          <strong>이차탈래?</strong>는 1:1 전담 매니저가
+          <strong>승계랜드</strong>는 1:1 전담 매니저가
         </p>
         <p className="mb-0.5 text-lg text-gray-700">
           고객님의 예산과 라이프 스타일에 맞는 차량을 추천하고
@@ -210,7 +210,7 @@ export function MainClient() {
           구매 후, 예기치 못한 문제가 생겨도 걱정하지 마세요!
         </p>
         <p className="mb-0.5 text-lg text-gray-700">
-          <strong>이차탈래?</strong>는 자체 케어 프로그램을 통해
+          <strong>승계랜드</strong>는 자체 케어 프로그램을 통해
         </p>
         <p className="mb-8 text-lg text-gray-700">
           구매 후에도 고객님의 차량을 꼼꼼히 관리해드립니다.
@@ -235,7 +235,7 @@ export function MainClient() {
           "차 한 대 이상의 가치를 전합니다."
         </p>
         <p className="mb-6 text-xl font-medium">
-          믿을 수 있는 중고차. <strong>이차탈래?</strong> 입니다.
+          믿을 수 있는 중고차. <strong>승계랜드</strong> 입니다.
         </p>
 
         <p className="mb-0.5 text-xl font-medium">중고차 시장은 여전히 불신과 불안이 가득합니다.</p>
@@ -284,7 +284,7 @@ export function MainClient() {
         <div className="relative mx-auto max-w-screen-lg px-4 py-16">
           <p>"차 한대 이상의 가치를 전합니다."</p>
           <p className="mb-8 text-2xl font-extrabold">
-            믿을 수 있는 중고차, <span className="text-main text-3xl">이차탈래?</span>
+            믿을 수 있는 중고차, <span className="text-main text-3xl">승계랜드</span>
           </p>
           <p className="mb-0.5 text-sm">상호명: 주식회사 요한 | 대표자명: 박문주</p>
           <p className="mb-0.5 text-sm">사업자등록번호: 480-81-03731</p>

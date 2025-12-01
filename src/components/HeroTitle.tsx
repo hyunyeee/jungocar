@@ -112,7 +112,7 @@ export function HeroTitle() {
         중고차를 구매하는 가장 현명한 선택
       </p>
       <p ref={line2Ref} className="text-main text-8xl">
-        이차탈래?
+        승계랜드
       </p>
     </h1>
   );

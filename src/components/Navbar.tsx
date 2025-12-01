@@ -6,7 +6,7 @@ export function Navbar() {
     <nav className="sticky inset-0 z-50 w-full border-b border-b-neutral-200 bg-white/80 backdrop-blur-sm">
       <div className="mx-auto flex max-w-screen-lg items-center justify-between p-4">
         <Link href="/" className="text-main text-3xl font-extrabold">
-          이차탈래?
+          승계랜드
         </Link>
         <ul className="flex items-center gap-10 *:font-semibold">
           <li>홈</li>
