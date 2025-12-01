@@ -4,6 +4,7 @@ import Carousel from "@/components/Carousel";
 import { ChatBubble } from "@/components/ChatBubble";
 import { Navbar } from "@/components/Navbar";
 import Phone from "@/components/Phone";
+import { ReviewTab } from "@/components/ReviewTab";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import Image from "next/image";
 import Link from "next/link";
@@ -35,6 +36,13 @@ const chats = [
   `신용이 안 좋아서 걱정했는데,\n여기서는 대출이 가능해서 차를 구매할 수 있었어요.`,
   "시운전까지 해보고 구매하니 후회가 없네요. 강추!",
   "허위매물에 지쳤었는데... 드디어 정착합니다.",
+];
+
+const reviews = [
+  { id: "1", title: "bmw 5 시리즈 구매후기", image: "/images/bmw.webp" },
+  { id: "2", title: "bmw 5 시리즈 구매후기", image: "/images/bmw.webp" },
+  { id: "3", title: "bmw 5 시리즈 구매후기", image: "/images/bmw.webp" },
+  { id: "4", title: "bmw 5 시리즈 구매후기", image: "/images/bmw.webp" },
 ];
 
 export function MainClient() {
@@ -70,6 +78,8 @@ export function MainClient() {
           )}
         />
       </SectionWrapper>
+
+      {/* 소개 */}
       <SectionWrapper type="gray">
         <p className="text-main mb-2 text-lg font-medium">허위매물일까 걱정되시나요?</p>
         <h2 className="mb-10 text-4xl font-extrabold">
@@ -214,6 +224,77 @@ export function MainClient() {
           draggable={false}
         />
       </SectionWrapper>
+
+      {/* 고객 약속 */}
+      <SectionWrapper type="main" className="text-start">
+        <h2 className="mb-12 text-3xl font-extrabold">
+          <span className="max-w-fit rounded-full px-4 py-2 ring-2 ring-white">고객 약속</span>
+        </h2>
+
+        <p className="mb-0.5 text-xl font-medium underline underline-offset-4">
+          "차 한 대 이상의 가치를 전합니다."
+        </p>
+        <p className="mb-6 text-xl font-medium">
+          믿을 수 있는 중고차. <strong>이차탈래?</strong> 입니다.
+        </p>
+
+        <p className="mb-0.5 text-xl font-medium">중고차 시장은 여전히 불신과 불안이 가득합니다.</p>
+        <p className="mb-0.5 text-xl font-medium">
+          가격은 저렴해 보여도, 숨겨진 문제와 허위매물로 인한 피해가 매년 늘고 있습니다.
+        </p>
+        <p className="mb-6 text-xl font-medium">
+          저도 과거 이런 시장 속에서 소비자로서 좌절했던 경험이 있습니다.
+        </p>
+
+        <p className="mb-0.5 text-xl font-medium">그래서 저희는 다짐했습니다.</p>
+        <p className="mb-0.5 text-xl font-medium">차를 파는 것이 아니라 고객의 삶을 바꾸자.</p>
+        <p className="mb-6 text-xl font-medium">차를 파는 것이 아니라 신뢰를 팔자.</p>
+
+        <p className="mb-14 text-xl font-medium">
+          저희는 단순 판매가 아닌, 투명한 공개를 원칙으로 합니다.
+        </p>
+
+        <Link
+          href="/"
+          className="group z-10 inline-block rounded bg-white px-8 py-2 text-lg font-semibold text-black transition-transform hover:scale-95"
+        >
+          상담 신청 →
+        </Link>
+      </SectionWrapper>
+
+      <SectionWrapper type="white" className="text-start">
+        <p className="text-main mb-2 text-lg font-medium">믿을 수 있는 실제 후기</p>
+        <h2 className="mb-6 text-4xl font-extrabold">고객님들의 실제 후기를 확인해보세요.</h2>
+        <Link
+          href="/"
+          className="group z-10 mb-10 inline-block rounded bg-neutral-200 px-8 py-2 text-lg font-semibold text-black transition-transform hover:scale-95"
+        >
+          후기 더보기 →
+        </Link>
+        <ReviewTab data={reviews} />
+      </SectionWrapper>
+
+      {/* 특가차량 */}
+      <SectionWrapper type="gray" className="text-start">
+        <p>특가 차량</p>
+        <p>제작중</p>
+      </SectionWrapper>
+
+      <section className="bg-dark-bg-gray text-white">
+        <div className="relative mx-auto max-w-screen-lg px-4 py-16">
+          <p>"차 한대 이상의 가치를 전합니다."</p>
+          <p className="mb-8 text-2xl font-extrabold">
+            믿을 수 있는 중고차, <span className="text-main text-3xl">이차탈래?</span>
+          </p>
+          <p className="mb-0.5 text-sm">상호명: 주식회사 요한 | 대표자명: 박문주</p>
+          <p className="mb-0.5 text-sm">사업자등록번호: 480-81-03731</p>
+          <p className="mb-0.5 text-sm">주소: 경기도 수원시 팔달구 동말로 66, 1층(화서동)</p>
+          <p className="mt-6 text-sm text-neutral-300">
+            본 광고 상품은 차량 특성상 시세 변동이 있을 수 있으며, 이율이 적용되지 않은 금액으로
+            신용 등급에 따라 월 납입금이 달라질 수 있습니다.
+          </p>
+        </div>
+      </section>
     </main>
   );
 }
