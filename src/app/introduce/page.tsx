@@ -7,7 +7,6 @@ import { Timeline } from "@/components/Timeline";
 export default function Introduce() {
   return (
     <main>
-      {/* Top Banner */}
       <DimmedImageBanner
         title="소개"
         descriptions={["텍스트를 입력하세요.", "(배너 배경으로 이미지 애니메이션)"]}

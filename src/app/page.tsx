@@ -57,8 +57,8 @@ export default function Home() {
 
       {/* 승계 리스트 */}
       <SectionWrapper type="white" className="text-start">
-        <h2 className="mb-2 text-2xl font-bold md:text-3xl">승계 리스트</h2>
-        <p className="mb-8 text-base text-neutral-700 md:text-lg">승계 리스트에 관한 간단한 설명</p>
+        <h2 className="mb-2 text-2xl font-bold md:text-3xl">제목을 입력하세요.</h2>
+        <p className="mb-8 text-base text-neutral-700 md:text-lg">텍스트를 입력하세요.</p>
 
         {/* md 이상: grid / md 이하: 가로 스크롤 */}
         <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-4 [-webkit-overflow-scrolling:touch] lg:grid lg:grid-cols-4 lg:gap-6">
