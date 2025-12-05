@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -23,6 +23,10 @@ export function Navbar() {
     const fullPath = "/" + link; // ''이면 '/'
     return pathname === fullPath;
   };
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   return (
     <nav className="sticky inset-0 z-50 w-full bg-white/80 backdrop-blur">
@@ -48,8 +52,8 @@ export function Navbar() {
                 className={
                   "block transition " +
                   (isActive(link)
-                    ? "text-main font-bold" // 활성 메뉴 스타일
-                    : "hover:text-main text-black")
+                    ? "font-bold underline underline-offset-5"
+                    : "text-black hover:text-neutral-600")
                 }
               >
                 {label}
@@ -69,9 +73,7 @@ export function Navbar() {
                 key={label + link}
                 className={
                   "rounded p-2 transition " +
-                  (isActive(link)
-                    ? "bg-main font-semibold text-white"
-                    : "bg-transparent hover:bg-neutral-200")
+                  (isActive(link) ? "text-main font-bold" : "text-black hover:text-neutral-600")
                 }
               >
                 <Link href={`/${link}`} className="block">
