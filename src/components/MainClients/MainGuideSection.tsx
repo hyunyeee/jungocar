@@ -52,7 +52,7 @@ export function MainGuideSection() {
   }, []);
 
   return (
-    <SectionWrapper type="white" ref={rootRef}>
+    <SectionWrapper type="gray" ref={rootRef}>
       <h2 className="mb-5 text-2xl font-bold md:text-3xl">
         완납 승계와 위탁 승계의 차이, 알고 계신가요?
       </h2>
