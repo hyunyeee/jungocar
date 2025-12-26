@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer className="bg-page-blue">
+    <footer className="bg-white">
       <div className="relative mx-auto max-w-screen-xl px-4 py-16 text-start">
         <p className="text-main mb-4 text-2xl font-extrabold">승계랜드</p>
         <p className="mb-1 text-neutral-700">상호명: 주식회사 요한 | 대표자명: 박문주</p>

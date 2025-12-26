@@ -11,12 +11,12 @@
   --color-light-green: #dce2d8;
   --color-primary-green: #698b6b;
   --color-dark-green: #445744;
-  --color-page-blue: #f2f7ff;
 }
 
 @theme {
   --color-main: #3b62cb;
-  --color-page-main: #b4c7ff;
+  --color-page-blue: #f2f7ff;
+  --color-page-gray: #efefef;
   /*--color-main: #21315b;*/
   /*--color-main: #112D4E;*/
   /*--color-main: #1C274C;*/
