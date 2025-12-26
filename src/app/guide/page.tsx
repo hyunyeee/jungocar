@@ -8,6 +8,7 @@ import { SectionWrapper } from "@/components/SectionWrapper";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { LeaseCompareSection } from "@/components/Guide/LeaseCompareSection";
 
 type Mode = "complete" | "consign" | null;
 
@@ -89,17 +90,7 @@ export default function LeaseGuidePage() {
             <RecommendationPanel selectedId={selectedId} />
           </div>
         </div>
-
-        <div className="mt-4 rounded-2xl border border-dashed border-gray-200 bg-white p-4">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-sm text-neutral-700">
-              더 상세한 절차나 비용은 상담을 통해 확인해보세요.
-            </p>
-            <Link href="/inquiry" className="text-main mt-2 text-sm font-medium sm:mt-0">
-              상담 신청하기 →
-            </Link>
-          </div>
-        </div>
+        <LeaseCompareSection />
       </SectionWrapper>
 
       {/* FAQ / CTA */}
@@ -132,6 +123,16 @@ export default function LeaseGuidePage() {
               보험 및 세금은 리스 조건 및 업체 도움 여부에 따라 달라질 수 있습니다.
             </p>
           </details>
+        </div>
+        <div className="mt-4 rounded-2xl border border-dashed border-gray-200 bg-white p-4">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm text-neutral-700">
+              더 상세한 절차나 비용은 상담을 통해 확인해보세요.
+            </p>
+            <Link href="/inquiry" className="text-main mt-2 text-sm font-medium sm:mt-0">
+              상담 신청하기 →
+            </Link>
+          </div>
         </div>
       </SectionWrapper>
     </main>
@@ -266,7 +267,7 @@ function RecommendationPanel({ selectedId }: { selectedId: string | null }) {
         <div className="">
           <h4 className="mb-2 text-xl font-bold">상황에 맞는 방식을 골라보세요</h4>
           <p className="text-sm leading-relaxed text-neutral-700">
-            왼쪽 카드 중 본인 상황과 가까운 항목을 선택하면
+            위 카드 중 본인 상황과 가까운 항목을 선택하면
             <br />
             가장 적합한 승계 방식을 추천해드려요.
           </p>
