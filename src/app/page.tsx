@@ -11,6 +11,7 @@ import {
   StackedCardsSection,
   ImageTripleSection,
 } from "@/components/MainClients";
+import { benefits } from "@/constants/home";
 
 export default function Home() {
   return (
@@ -23,35 +24,38 @@ export default function Home() {
         rightChildren={
           <div className="w-full">
             <h2 className="mb-5 text-3xl font-semibold md:text-4xl">
-              <p>
-                <span className="text-main font-bold">제목</span>을
-              </p>
-              <p>입력하세요.</p>
+              <span className="text-main text-3xl font-bold">승계랜드</span>
+              <p className="mt-2 mb-1">자동차 리스, 렌트 차량</p>
+              <p>큰 손해 없이 판매하는 방법!</p>
             </h2>
-            {Array.from({ length: 3 }).map((_, idx) => (
-              <p key={idx} className="mb-0.5 flex items-center gap-1 text-base md:text-xl">
-                <Check className="text-main size-5 shrink-0" /> 텍스트를 입력하세요.
+            {benefits.map((text, idx) => (
+              <p
+                key={idx}
+                className="mb-0.5 flex items-start gap-2 text-base leading-relaxed md:text-xl"
+              >
+                <Check className="text-main mt-1 size-5 shrink-0" />
+                {text}
               </p>
             ))}
           </div>
         }
       />
 
-      <FeatureGridSection />
-
       {/* 리스가이드 이동 섹션 */}
       <MainGuideSection />
+
+      {/* 승계 리스트 */}
+      <Suspense fallback={null}>
+        <VehiclesPreviewSection />
+      </Suspense>
+
+      <FeatureGridSection />
 
       <StackedCardsSection />
 
       <ImageTripleSection />
 
       <TimeLineSection />
-
-      {/* 승계 리스트 */}
-      <Suspense fallback={null}>
-        <VehiclesPreviewSection />
-      </Suspense>
     </main>
   );
 }
