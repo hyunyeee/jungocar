@@ -12,6 +12,8 @@ import {
   ImageTripleSection,
 } from "@/components/MainClients";
 import { benefits } from "@/constants/home";
+import { ReviewSection } from "@/components/review/ReviewSection";
+import { DUMMY_REVIEWS } from "@/constants/dummyReviews";
 
 export default function Home() {
   return (
@@ -44,7 +46,10 @@ export default function Home() {
       {/* 리스가이드 이동 섹션 */}
       <MainGuideSection />
 
-      {/* 승계 리스트 */}
+      {/* 후기 */}
+      <ReviewSection reviews={DUMMY_REVIEWS.slice(0, 4)} />;
+
+        {/* 승계 리스트 */}
       <Suspense fallback={null}>
         <VehiclesPreviewSection />
       </Suspense>
