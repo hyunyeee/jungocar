@@ -8,11 +8,6 @@ import { Footer } from "@/components/Footer";
 export const metadata: Metadata = {
   title: "승계랜드",
   description: "자동차 리스, 렌트 차량 큰 손해 없이 판매하는 방법!",
-  icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
-  },
 };
 
 export default function RootLayout({
