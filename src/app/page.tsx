@@ -33,7 +33,6 @@ export default function Home() {
             />
           </div>
         }
-
         rightChildren={
           <div className="w-full">
             <h2 className="mb-5 text-3xl font-semibold md:text-4xl">
@@ -56,7 +55,8 @@ export default function Home() {
       {/* 리스가이드 이동 섹션 */}
       <MainGuideSection />
       {/* 후기 */}
-      <ReviewSection reviews={DUMMY_REVIEWS.slice(0, 4)} />;{/* 승계 리스트 */}
+      <ReviewSection reviews={DUMMY_REVIEWS.slice(0, 4)} />
+      {/* 승계 리스트 */}
       <Suspense fallback={null}>
         <VehiclesPreviewSection />
       </Suspense>
