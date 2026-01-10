@@ -71,7 +71,8 @@ export function DimmedImageBanner({
         className={`z-0 object-cover ${imageClassName}`}
         priority
         draggable={false}
-        onLoadingComplete={() => setLoading(true)}
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        onLoad={() => setLoading(true)}
       />
     </div>
   );
