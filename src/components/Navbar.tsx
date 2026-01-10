@@ -9,7 +9,7 @@ const menus = [
   { label: "홈", link: "" },
   { label: "승계 가이드", link: "guide" },
   { label: "승계 차량 소개", link: "vehicle" },
-  { label: "구매후기", link: "review" },
+  { label: "구매후기", link: "reviews" },
   { label: "상담신청", link: "inquiry" },
 ];
 

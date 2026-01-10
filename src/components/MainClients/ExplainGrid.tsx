@@ -17,40 +17,49 @@ export function ExplainGrid({ type, leftChildren, rightChildren }: ExplainGridPr
     if (!rootRef.current) return;
 
     const ctx = gsap.context(() => {
-      const q = gsap.utils.selector(rootRef); // scoped selector
+      const q = gsap.utils.selector(rootRef);
       const left = q(".ex-left");
       const right = q(".ex-right");
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: rootRef.current,
-          start: "top 50%",
-          // once: true, // 한 번만 실행하려면 주석 해제
+          start: "top 60%",
           toggleActions: "play none none reverse",
-          // markers: true,
         },
       });
 
-      tl.from(left, { opacity: 0, x: -40, duration: 0.7, ease: "power2.out" }).from(
+      tl.from(left, {
+        opacity: 0,
+        x: -40,
+        duration: 0.7,
+        ease: "power2.out",
+      }).from(
         right,
-        { opacity: 0, x: 40, duration: 0.7, ease: "power2.out" },
-        "-=0.58",
+        {
+          opacity: 0,
+          x: 40,
+          duration: 0.7,
+          ease: "power2.out",
+        },
+        "-=0.55",
       );
     }, rootRef);
 
-    return () => {
-      ctx.revert();
-    };
+    return () => ctx.revert();
   }, []);
 
   return (
     <SectionWrapper
-      type={type}
-      className="ref={rootRef} grid grid-cols-1 gap-4 text-start md:grid-cols-2 md:gap-10"
       ref={rootRef}
+      type={type}
+      className="grid grid-cols-1 gap-6 text-start sm:gap-8 md:grid-cols-[5fr_7fr] md:gap-10 lg:grid-cols-[4fr_8fr]"
     >
-      <div className="ex-left w-full">{leftChildren}</div>
-      <div className="ex-right w-full">{rightChildren}</div>
+      {/* LEFT */}
+      <div className="ex-left w-full min-w-0 break-words">{leftChildren}</div>
+
+      {/* RIGHT */}
+      <div className="ex-right w-full min-w-0 overflow-hidden break-words">{rightChildren}</div>
     </SectionWrapper>
   );
 }
