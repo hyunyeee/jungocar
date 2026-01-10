@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { FloatingButtonGroup } from "@/components/FloatingButtonGroup";
 import { Footer } from "@/components/Footer";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "승계랜드",
@@ -21,6 +22,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <FloatingButtonGroup />
+        <Toaster position="top-center" />
         <Footer />
       </body>
     </html>
