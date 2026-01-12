@@ -15,6 +15,8 @@ import Image from "next/image";
 import { benefits } from "@/constants/home";
 import { ReviewSection } from "@/components/review/ReviewSection";
 import { DUMMY_REVIEWS } from "@/constants/dummyReviews";
+import { SectionWrapper } from "@/components/SectionWrapper";
+import { BranchedTimeLineSection } from "@/components/MainClients/BranchedTimeLineSection";
 
 export default function Home() {
   return (
@@ -63,7 +65,14 @@ export default function Home() {
       <FeatureGridSection />
       <StackedCardsSection />
       <ImageTripleSection />
-      <TimeLineSection />
+      {/* <TimeLineSection /> */}
+
+      {/* 분기 타임라인 */}
+      {/* 루트 - 루트 - 리프/리프 */}
+      {/* 애니메이션 없음 */}
+
+      {/* 모바일 사이즈(md 이하) 에서는 리스트처럼 보임 */}
+      <BranchedTimeLineSection />
     </main>
   );
 }
