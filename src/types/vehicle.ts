@@ -1,6 +1,7 @@
 export interface Vehicle {
   id: number;
   title: string;
+  description: string;
   thumbnail: string | null;
   year: string;
   price: number;

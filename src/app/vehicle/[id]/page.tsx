@@ -13,6 +13,7 @@ interface Vehicle {
   year: string;
   mileage: number;
   price: number;
+  description: string;
   monthFee: number;
   supportFee: number;
   color: string;
@@ -32,6 +33,7 @@ export default async function VehicleDetail() {
     year: "2019",
     mileage: 45000,
     price: 1500,
+    description: "이 차에 대한 설명을 여기에 기재합니다.",
     monthFee: 52,
     supportFee: 0,
     color: "흰색",
@@ -48,6 +50,37 @@ export default async function VehicleDetail() {
       <VehicleDetailHeader {...vehicle} />
       {/* 갤러리 */}
       <GalleryCarousel images={vehicle.images} />
+      <section className="bg-white">
+        <div className="container mx-auto px-4 py-12">
+          <div className="flex items-end justify-start gap-3">
+            <div className="bg-main relative size-13 shrink-0 overflow-hidden rounded-full shadow-md">
+              <Image
+                src="/images/seller.webp"
+                alt="승계랜드"
+                fill
+                className="object-cover"
+                sizes="48px"
+              />
+            </div>
+            {/* 밀풍선 코멘트 */}
+            <div className="chat chat-start">
+              <div className="chat-bubble wrap-break-words rounded-tl-2xl rounded-r-2xl bg-gray-200 whitespace-pre-wrap text-neutral-900">
+                <p className="mb-2 text-lg">{vehicle.description}</p>
+                <p className="mb-1">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea id, enim reiciendis
+                  officiis distinctio quae, amet voluptatem natus doloremque, ducimus libero
+                  consectetur quaerat. Blanditiis repudiandae dolorem ducimus itaque impedit ad.
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea id, enim reiciendis
+                  officiis distinctio quae, amet voluptatem natus doloremque, ducimus libero
+                  consectetur quaerat. Blanditiis repudiandae dolorem ducimus itaque impedit ad.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* 차량 옵션 */}
       <VehicleOptions options={vehicle.options} />
 
@@ -101,25 +134,6 @@ export default async function VehicleDetail() {
           </div>
         </div>
       </section>
-
-      {/* 판매자 정보 */}
-      {/* <section className="mt-8 bg-white">
-        <div className="container mx-auto px-4 py-12">
-          <h3 className="mb-5 text-xl font-semibold">판매자 설명</h3>
-          <div className="flex items-center gap-3">
-            <div className="relative size-13 shrink-0 overflow-hidden rounded-full bg-neutral-200">
-              <Image
-                src="/images/seller.webp"
-                alt="승계랜드"
-                fill
-                className="object-cover"
-                sizes="48px"
-              />
-            </div>
-            <p className="text-lg font-medium">승계랜드</p>
-          </div>
-        </div>
-      </section> */}
     </main>
   );
 }

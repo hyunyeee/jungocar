@@ -22,6 +22,7 @@ export default async function Cars({ searchParams }: Iparms) {
     return Array.from({ length: 12 }).map((_, id) => ({
       id,
       title: "소나타 뉴라이즈",
+      description: "이 차에 대한 설명을 여기에 기재합니다.",
       thumbnail: null,
       year: "2019",
       price: 1500,
