@@ -137,7 +137,7 @@ function DesktopGallery({ images, currentIdx, goPrev, goNext, goTo, toggleOpenZo
             return (
               <div
                 key={idx}
-                className="relative aspect-[5/4] w-[calc(50%-2px)] cursor-pointer overflow-hidden bg-neutral-900"
+                className="relative aspect-5/4 w-[calc(50%-2px)] cursor-pointer overflow-hidden bg-neutral-900"
                 onClick={() => src && goTo(idx)}
               >
                 {src ? (

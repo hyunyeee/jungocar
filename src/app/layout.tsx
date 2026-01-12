@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={`${pretendard.variable} `}>
-      <body className={`${pretendard.className} w-full overflow-auto text-black`}>
+      <body className={`font-paperlogy w-full overflow-auto text-black`}>
         <Navbar />
         {children}
         <FloatingButtonGroup />
