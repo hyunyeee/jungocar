@@ -33,25 +33,26 @@ const BANNERS = [
 
 export function CarouselBanner() {
   return (
-    <Carousel
-      data={BANNERS}
-      indicator
-      height={500}
-      autoInterval={8000}
-      renderBlock={(item) => (
-        <div className="relative h-full w-full">
-          <Image src={item.src} alt={item.title} fill priority className="object-cover" />
+    <div className="h-[300px] w-full transition-[height] duration-300 md:h-[500px]">
+      <Carousel
+        data={BANNERS}
+        indicator
+        autoInterval={8000}
+        renderBlock={(item) => (
+          <div className="relative h-full w-full">
+            <Image src={item.src} alt={item.title} fill priority className="object-cover" />
 
-          {/* 오버레이 */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+            {/* 오버레이 */}
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
 
-          {/* 문구 영역 */}
-          <div className="absolute right-6 bottom-20 left-6 text-white md:right-auto md:left-12 md:max-w-xl">
-            <h2 className="text-2xl leading-tight font-bold md:text-3xl">{item.title}</h2>
-            <p className="mt-2 text-sm text-white/90 md:text-base">{item.desc}</p>
+            {/* 문구 영역 */}
+            <div className="absolute right-6 bottom-20 left-6 text-white md:right-auto md:left-12 md:max-w-xl">
+              <h2 className="text-2xl leading-tight font-bold md:text-3xl">{item.title}</h2>
+              <p className="mt-2 text-sm text-white/90 md:text-base">{item.desc}</p>
+            </div>
           </div>
-        </div>
-      )}
-    />
+        )}
+      />
+    </div>
   );
 }

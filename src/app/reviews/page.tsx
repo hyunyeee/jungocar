@@ -4,15 +4,13 @@ import ReviewPagination from "@/components/review/ReviewPagination";
 import { DUMMY_REVIEWS } from "@/constants/dummyReviews";
 
 interface ReviewPageProps {
-  searchParams: {
-    page?: string;
-  };
+  searchParams: Promise<{ page?: string }>;
 }
 
 const PAGE_SIZE = 6;
 
-export default function Review({ searchParams }: ReviewPageProps) {
-  const currentPage = Number(searchParams.page ?? 0);
+export default async function Review({ searchParams }: ReviewPageProps) {
+  const currentPage = Number((await searchParams).page ?? 0);
 
   const totalElements = DUMMY_REVIEWS.length;
   const totalPages = Math.ceil(totalElements / PAGE_SIZE);

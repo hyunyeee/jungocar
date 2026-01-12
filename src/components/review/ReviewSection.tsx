@@ -2,6 +2,7 @@ import { ReviewCard } from "./ReviewCard";
 import { ReviewSummary } from "@/types/review";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { SectionWrapper } from "../SectionWrapper";
 
 interface ReviewSectionProps {
   reviews: ReviewSummary[];
@@ -11,7 +12,7 @@ export function ReviewSection({ reviews }: ReviewSectionProps) {
   if (!reviews.length) return null;
 
   return (
-    <section className="mt-24">
+    <SectionWrapper type="white">
       {/* 타이틀 영역 */}
       <div className="mb-10 text-center">
         <h3 className="text-2xl font-bold md:text-3xl">실제 고객 후기</h3>
@@ -37,6 +38,6 @@ export function ReviewSection({ reviews }: ReviewSectionProps) {
           </Button>
         </Link>
       </div>
-    </section>
+    </SectionWrapper>
   );
 }

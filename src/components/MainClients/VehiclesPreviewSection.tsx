@@ -14,6 +14,7 @@ export async function VehiclesPreviewSection() {
       id,
       title: "소나타 뉴라이즈",
       thumbnail: null,
+      description: "여기에 설명을 넣을 예정",
       year: "2019",
       price: 1500,
       mileage: 45000,
