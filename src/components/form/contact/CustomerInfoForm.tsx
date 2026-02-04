@@ -9,11 +9,15 @@ import { CustomerInfo } from "@/types/contact";
 import { InputLine } from "./InputLine";
 import { TermsContent } from "./TermsContent";
 
+interface Props {
+  onSuccess?: () => void;
+}
+
 interface FormValues extends CustomerInfo {
   agreePrivacy: boolean;
 }
 
-export default function CustomerInfoForm() {
+export default function CustomerInfoForm({ onSuccess }: Props) {
   const {
     register,
     handleSubmit,
@@ -49,6 +53,7 @@ export default function CustomerInfoForm() {
       alert("문의가 정상적으로 제출되었습니다!");
       reset();
       setFocus("customerName");
+      onSuccess?.();
     } catch {
       alert("제출 실패");
     }
@@ -77,7 +82,7 @@ export default function CustomerInfoForm() {
 
         <InputLine
           label="전화번호"
-          placeholder="010-0000-0000"
+          placeholder="01012341234"
           type="tel"
           register={register("customerPhone", {
             required: "전화번호를 입력해주세요.",
