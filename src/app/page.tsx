@@ -1,4 +1,3 @@
-import { ImageSpace } from "@/components/ImageSpace";
 import { Check } from "lucide-react";
 import { Suspense } from "react";
 import {
@@ -14,6 +13,7 @@ import {
 import Image from "next/image";
 import { benefits } from "@/constants/home";
 import { ReviewSection } from "@/components/review/ReviewSection";
+import FloatingCustomerForm from "@/components/form/contact/FloatingCustomerForm";
 import { DUMMY_REVIEWS } from "@/constants/dummyReviews";
 
 export default function Home() {
@@ -64,6 +64,7 @@ export default function Home() {
       <StackedCardsSection />
       <ImageTripleSection />
       <TimeLineSection />
+      <FloatingCustomerForm />
     </main>
   );
 }
