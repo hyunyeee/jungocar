@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { getReviews } from "@/lib/api/reviews";
-import { ReviewSummary } from "@/types/review";
+import { getReviewById } from "@/lib/api/reviews";
 
 interface ReviewDetailPageProps {
   params: Promise<{
@@ -21,15 +20,16 @@ export default async function ReviewDetailPage({ params }: ReviewDetailPageProps
   const { id } = await params;
 
   const reviewId = Number(id);
-
   if (Number.isNaN(reviewId)) {
     notFound();
   }
 
-  // 🔹 전체조회 API 재사용
-  const pageData = await getReviews(0);
-
-  const review: ReviewSummary | undefined = pageData.content.find((r) => r.id === reviewId);
+  let review;
+  try {
+    review = await getReviewById(reviewId);
+  } catch {
+    notFound();
+  }
 
   if (!review) {
     notFound();
