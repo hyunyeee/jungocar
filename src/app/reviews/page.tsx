@@ -1,24 +1,20 @@
 import { DimmedImageBanner } from "@/components/DimmedImageBanner";
 import { ReviewCard } from "@/components/review/ReviewCard";
 import ReviewPagination from "@/components/review/ReviewPagination";
-import { DUMMY_REVIEWS } from "@/constants/dummyReviews";
+import { ReviewSummary } from "@/types/review";
+import { getReviews } from "@/lib/api/reviews";
 
 interface ReviewPageProps {
-  searchParams: Promise<{ page?: string }>;
+  searchParams: { page?: string };
 }
 
-const PAGE_SIZE = 6;
-
 export default async function Review({ searchParams }: ReviewPageProps) {
-  const currentPage = Number((await searchParams).page ?? 0);
+  const currentPage = Number(searchParams.page ?? 0);
 
-  const totalElements = DUMMY_REVIEWS.length;
-  const totalPages = Math.ceil(totalElements / PAGE_SIZE);
+  const data = await getReviews(currentPage);
 
-  const start = currentPage * PAGE_SIZE;
-  const end = start + PAGE_SIZE;
-
-  const pagedReviews = DUMMY_REVIEWS.slice(start, end);
+  const reviews: ReviewSummary[] = data.content;
+  const totalPages = data.totalPages;
 
   return (
     <main>
@@ -32,7 +28,7 @@ export default async function Review({ searchParams }: ReviewPageProps) {
       <section className="mx-auto max-w-6xl px-4 py-20">
         {/* 후기 리스트 */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {pagedReviews.map((review) => (
+          {reviews.map((review) => (
             <ReviewCard key={review.id} review={review} />
           ))}
         </div>
