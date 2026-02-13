@@ -1,20 +1,35 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ReviewSummary } from "@/types/review";
-import { DUMMY_REVIEWS } from "@/constants/dummyReviews";
+import { getReviewById } from "@/lib/api/reviews";
 
 interface ReviewDetailPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
-const DEFAULT_THUMBNAIL = "/images/default-review.webp";
+const DEFAULT_THUMBNAIL =
+  "https://i.pinimg.com/1200x/80/05/4e/80054e1184ec8625d6a82d87f8007095.jpg";
 
-export default function ReviewDetailPage({ params }: ReviewDetailPageProps) {
-  const reviewId = Number(params.id);
+function isValidImageUrl(url: string | null | undefined): boolean {
+  if (!url) return false;
+  return /\.(jpg|jpeg|png|webp|avif)$/i.test(url);
+}
 
-  const review: ReviewSummary | undefined = DUMMY_REVIEWS.find((r) => r.id === reviewId);
+export default async function ReviewDetailPage({ params }: ReviewDetailPageProps) {
+  const { id } = await params;
+
+  const reviewId = Number(id);
+  if (Number.isNaN(reviewId)) {
+    notFound();
+  }
+
+  let review;
+  try {
+    review = await getReviewById(reviewId);
+  } catch {
+    notFound();
+  }
 
   if (!review) {
     notFound();
@@ -22,7 +37,7 @@ export default function ReviewDetailPage({ params }: ReviewDetailPageProps) {
 
   const { title, content, imageUrls, thumbnail } = review;
 
-  const resolvedThumbnail = thumbnail ?? DEFAULT_THUMBNAIL;
+  const resolvedThumbnail = isValidImageUrl(thumbnail) ? thumbnail! : DEFAULT_THUMBNAIL;
 
   return (
     <main>
@@ -45,14 +60,18 @@ export default function ReviewDetailPage({ params }: ReviewDetailPageProps) {
       {imageUrls && imageUrls.length > 0 && (
         <section className="mx-auto max-w-5xl px-4 py-12">
           <div className="space-y-6">
-            {imageUrls.map((url, idx) => (
-              <div
-                key={`${url}-${idx}`}
-                className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-neutral-100"
-              >
-                <Image src={url} alt="" fill className="object-cover" />
-              </div>
-            ))}
+            {imageUrls.map((url, idx) => {
+              const safeUrl = isValidImageUrl(url) ? url : DEFAULT_THUMBNAIL;
+
+              return (
+                <div
+                  key={`${url}-${idx}`}
+                  className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-neutral-100"
+                >
+                  <Image src={safeUrl} alt={`review-image-${idx}`} fill className="object-cover" />
+                </div>
+              );
+            })}
           </div>
         </section>
       )}

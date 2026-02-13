@@ -1,4 +1,3 @@
-import { ImageSpace } from "@/components/ImageSpace";
 import { Check } from "lucide-react";
 import { Suspense } from "react";
 import {
@@ -14,12 +13,18 @@ import {
 import Image from "next/image";
 import { benefits } from "@/constants/home";
 import { ReviewSection } from "@/components/review/ReviewSection";
-import { DUMMY_REVIEWS } from "@/constants/dummyReviews";
+import FloatingCustomerForm from "@/components/form/contact/FloatingCustomerForm";
+import { getReviews } from "@/lib/api/reviews";
 
-export default function Home() {
+export default async function Home() {
+  const reviewData = await getReviews(0);
+
+  const reviews = reviewData.content.slice(0, 4);
+
   return (
     <main>
       <CarouselBanner />
+
       {/* 타이틀 */}
       <ExplainGrid
         type="white"
@@ -40,6 +45,7 @@ export default function Home() {
               <p className="mt-2 mb-1">자동차 리스, 렌트 차량</p>
               <p>큰 손해 없이 판매하는 방법!</p>
             </h2>
+
             {benefits.map((text, idx) => (
               <p
                 key={idx}
@@ -52,18 +58,23 @@ export default function Home() {
           </div>
         }
       />
+
       {/* 리스가이드 이동 섹션 */}
       <MainGuideSection />
+
       {/* 후기 */}
-      <ReviewSection reviews={DUMMY_REVIEWS.slice(0, 4)} />
+      <ReviewSection reviews={reviews} />
+
       {/* 승계 리스트 */}
       <Suspense fallback={null}>
         <VehiclesPreviewSection />
       </Suspense>
+
       <FeatureGridSection />
       <StackedCardsSection />
       <ImageTripleSection />
       <TimeLineSection />
+      <FloatingCustomerForm />
     </main>
   );
 }

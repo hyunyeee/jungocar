@@ -14,8 +14,15 @@ export async function getReviewById(id: number): Promise<ReviewSummary> {
   return res.json();
 }
 
-export async function getReviews(page = 0, size = 6) {
-  const res = await fetch(`${BASE_URL}/reviews?page=${page}&size=${size}`, { cache: "no-store" });
+interface ReviewPageResponse {
+  content: ReviewSummary[];
+  totalElements: number;
+  totalPages: number;
+  number: number;
+}
+
+export async function getReviews(page = 0): Promise<ReviewPageResponse> {
+  const res = await fetch(`${BASE_URL}/reviews?page=${page}`, { cache: "no-store" });
 
   if (!res.ok) {
     throw new Error("Failed to fetch reviews");

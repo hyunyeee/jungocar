@@ -16,6 +16,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "images.pexels.com",
       },
+      {
+        protocol: "https",
+        hostname: "i.pinimg.com",
+      },
     ],
   },
   // 나중에삭제해야함!!!!

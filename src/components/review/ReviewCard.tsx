@@ -8,7 +8,8 @@ interface ReviewCardProps {
 }
 
 export function ReviewCard({ review }: ReviewCardProps) {
-  const thumbnail = review.thumbnail ?? "/images/default-reviews.webp";
+  const thumbnail =
+    review.thumbnail ?? "https://i.pinimg.com/1200x/80/05/4e/80054e1184ec8625d6a82d87f8007095.jpg";
 
   return (
     <Link href={`/reviews/${review.id}`} className="h-full">
