@@ -70,9 +70,9 @@ export default async function Home() {
         <VehiclesPreviewSection />
       </Suspense>
 
-      <FeatureGridSection />
-      <StackedCardsSection />
-      <ImageTripleSection />
+      {/*<FeatureGridSection />*/}
+      {/*<StackedCardsSection />*/}
+      {/*<ImageTripleSection />*/}
       <TimeLineSection />
       <FloatingCustomerForm />
     </main>
