@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { ImageSpace } from "./ImageSpace";
 import { formatNumber } from "@/utils/formatNumber";
-import { Vehicle } from "@/types/vehicle";
+import { VehiclePreview } from "@/types/vehiclePreview";
 
-export function VehicleCard(props: Vehicle) {
+export function VehicleCard(props: VehiclePreview) {
   const { id, title, year, price, mileage, fuelType, gearType, color } = props;
 
   return (

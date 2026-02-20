@@ -5,6 +5,7 @@ import { VehicleOptions } from "@/components/VehicleOptions";
 import { formatNumber } from "@/utils/formatNumber";
 import { Car, RectangleEllipsis } from "lucide-react";
 import Image from "next/image";
+import { FinanceTabs } from "@/components/finance/FinanceTabs";
 
 interface Vehicle {
   id: number;
@@ -86,52 +87,8 @@ export default async function VehicleDetail() {
 
       {/* 렌트 정보 */}
       <section className="mt-8 bg-white">
-        <div className="container mx-auto px-4 py-12">
-          <h3 className="mb-5 flex items-center gap-2 text-xl font-semibold">
-            <Car className="size-6 shrink-0" />
-            <span>렌트 정보</span>
-          </h3>
-
-          {/* 항목 */}
-          <div className="space-y-6">
-            {/* 차량 계약 시 비용 */}
-            <p className="mb-2 text-base font-semibold text-neutral-900">차량 계약 시 비용</p>
-            <div className="flex items-center justify-between">
-              <span className="text-base text-neutral-600">인수금 (판매자에게 지급)</span>
-              <span className="text-lg font-medium">{vehicle.supportFee}만원</span>
-            </div>
-
-            {/* 운행기간 동안 비용 */}
-            <p className="mb-2 text-base font-semibold text-neutral-900">운행기간 동안 비용</p>
-            <div className="flex items-center justify-between">
-              <span className="text-base text-neutral-600">
-                월 렌트료 {vehicle.monthFee}만원 X 12개월
-              </span>
-              <span className="text-main text-lg font-medium">
-                {formatNumber(vehicle.monthFee * 12)}만원
-              </span>
-            </div>
-
-            {/* 렌트 만기 후 비용 */}
-            <p className="mb-2 text-base font-semibold text-neutral-900">렌트 만기 후 비용</p>
-            <div className="flex items-center justify-between">
-              <select className="cursor-pointer border-b border-neutral-600 py-2 text-base text-neutral-600 focus:outline-none">
-                <option>인수 (렌트사에게 지급)</option>
-                <option>반납 (보증급 환급)</option>
-              </select>
-              <span className="text-main text-lg font-medium">
-                {formatNumber(vehicle.price)}만원
-              </span>
-            </div>
-
-            {/* 총비용 */}
-            <div className="mt-12">
-              <div className="bg-main flex items-center justify-between rounded-xl p-4 text-xl font-bold text-white">
-                <span>총비용</span>
-                <span>{formatNumber(vehicle.monthFee * 12 + vehicle.price)}만원</span>
-              </div>
-            </div>
-          </div>
+        <div className="container mx-auto px-4 py-10">
+          <FinanceTabs vehicle={vehicle} />
         </div>
       </section>
     </main>

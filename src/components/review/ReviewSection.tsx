@@ -13,7 +13,7 @@ export function ReviewSection({ reviews }: ReviewSectionProps) {
 
   return (
     <SectionWrapper type="white">
-      {/* 타이틀 영역 */}
+      {/* 타이틀 */}
       <div className="mb-10 text-center">
         <h3 className="text-2xl font-bold md:text-3xl">실제 고객 후기</h3>
         <p className="mt-2 text-sm text-neutral-600 md:text-base">
@@ -21,16 +21,16 @@ export function ReviewSection({ reviews }: ReviewSectionProps) {
         </p>
       </div>
 
-      {/* 가운데 정렬된 후기 카드 */}
-      <div className="flex justify-center">
-        <div className="grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {/* 후기 카드 */}
+      <div className="mx-auto w-full max-w-6xl px-4">
+        <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {reviews.slice(0, 4).map((review) => (
             <ReviewCard key={review.id} review={review} />
           ))}
         </div>
       </div>
 
-      {/* 하단 CTA */}
+      {/* CTA */}
       <div className="mt-10 flex justify-center">
         <Link href="/reviews">
           <Button variant="outline" size="lg">
