@@ -3,9 +3,7 @@
 > 자동차 리스·렌트 승계 플랫폼 마케팅 웹사이트  
 > Next.js(App Router) 기반 SSR + 전환 중심 UX 설계
 
-🔗 **Website**: https://www.xn--989an7ml9bdtr.com/
-
-https://www.승계랜드.com/
+🔗 **Website**: [승계랜드.com](https://www.xn--989an7ml9bdtr.com/)
 
 ---
 
