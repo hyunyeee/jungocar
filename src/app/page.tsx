@@ -6,9 +6,6 @@ import {
   VehiclesPreviewSection,
   CarouselBanner,
   ExplainGrid,
-  FeatureGridSection,
-  StackedCardsSection,
-  ImageTripleSection,
 } from "@/components/MainClients";
 import Image from "next/image";
 import { benefits } from "@/constants/home";
