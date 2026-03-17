@@ -1,12 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { RentInfo } from "./RentInfo";
-import { LeaseInfo } from "./LeaseInfo";
-import { FinanceType, Vehicle } from "@/types/vehiclePreview";
+import { FinanceType, VehicleDetail } from "@/types/vehiclePreview";
+import { FinanceInfoContent } from "@/components/finance/FinanceInfoContent";
 
 interface Props {
-  vehicle: Vehicle;
+  vehicle: VehicleDetail;
 }
 
 export function FinanceTabs({ vehicle }: Props) {
@@ -34,7 +33,7 @@ export function FinanceTabs({ vehicle }: Props) {
         </button>
       </div>
 
-      {tab === "rent" ? <RentInfo vehicle={vehicle} /> : <LeaseInfo vehicle={vehicle} />}
+      <FinanceInfoContent vehicle={vehicle} type={tab} />
     </>
   );
 }
