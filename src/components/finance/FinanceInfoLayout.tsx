@@ -1,9 +1,9 @@
 import { formatNumber } from "@/utils/formatNumber";
 import { Car } from "lucide-react";
-import { FinanceType, Vehicle } from "@/types/vehiclePreview";
+import { FinanceType, VehicleDetail } from "@/types/vehiclePreview";
 
 interface FinanceInfoLayoutProps {
-  vehicle: Vehicle;
+  vehicle: VehicleDetail;
   type: FinanceType;
 }
 
