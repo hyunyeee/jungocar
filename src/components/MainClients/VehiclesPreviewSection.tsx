@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { SectionWrapper } from "../SectionWrapper";
-import { VehiclePreview } from "@/types/vehiclePreview";
+import { VehicleSummary } from "@/types/vehiclePreview";
 import { formatNumber } from "@/utils/formatNumber";
 import { ImageSpace } from "../ImageSpace";
 
@@ -50,7 +50,7 @@ export async function VehiclesPreviewSection() {
   );
 }
 
-export function VehiclePreviewCard(props: VehiclePreview) {
+export function VehiclePreviewCard(props: VehicleSummary) {
   const { id, title, year, price, mileage, fuelType, gearType, color } = props;
 
   return (
