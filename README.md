@@ -14,6 +14,29 @@
 
 ---
 
+## Screens
+
+<div align="center">
+  <img src="./public/sl_main.png" alt="승계랜드 메인 페이지" width="900" />
+  <p><strong>Main</strong> · 신뢰 형성 중심의 랜딩 페이지</p>
+</div>
+
+<br />
+
+<div align="center">
+  <img src="./public/sl_guide.png" alt="승계랜드 가이드 페이지" width="900" />
+  <p><strong>Guide</strong> · 승계 절차와 판단을 돕는 안내 페이지</p>
+</div>
+
+<br />
+
+<div align="center">
+  <img src="./public/sl_detail.png" alt="승계랜드 차량 상세 페이지" width="900" />
+  <p><strong>Detail</strong> · 차량 정보와 전환 요소를 담은 상세 페이지</p>
+</div>
+
+---
+
 ## Architecture
 
 ### SSR 기반 렌더링 전략
