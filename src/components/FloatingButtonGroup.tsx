@@ -20,8 +20,7 @@ export function FloatingButtonGroup() {
   );
 }
 
-/** !!!!!!! 전화번호 번경 필요 !!!!!!! */
-const PHONE_NUMBER = "010-1234-5678";
+const PHONE_NUMBER = "010-3074-4446";
 
 function PhoneCallBubble() {
   const bubbleRef = useRef<HTMLDivElement>(null);
