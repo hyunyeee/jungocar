@@ -15,9 +15,9 @@ export function ReviewSection({ reviews }: ReviewSectionProps) {
     <SectionWrapper type="white">
       {/* 타이틀 */}
       <div className="mb-10 text-center">
-        <h3 className="text-2xl font-bold md:text-3xl">실제 고객 후기</h3>
+        <h3 className="text-2xl font-bold md:text-3xl">실제 거래 후기</h3>
         <p className="mt-2 text-sm text-neutral-600 md:text-base">
-          승계랜드를 이용한 고객들의 생생한 후기입니다.
+          승계랜드를 이용한 고객들의 생생한 거래 후기입니다.
         </p>
       </div>
 
@@ -34,7 +34,7 @@ export function ReviewSection({ reviews }: ReviewSectionProps) {
       <div className="mt-10 flex justify-center">
         <Link href="/reviews">
           <Button variant="outline" size="lg">
-            후기 더보기
+            거래 후기 더보기
           </Button>
         </Link>
       </div>
