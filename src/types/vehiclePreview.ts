@@ -1,4 +1,5 @@
 export type FinanceType = "rent" | "lease";
+export type SupportFeeType = "TAKEOVER" | "SUPPORT";
 
 /**
  * 차량 목록 카드 (리스트 API)
@@ -38,14 +39,13 @@ export interface VehicleDetail {
 
   monthFee: number;
   supportFee: number;
+  supportFeeType: SupportFeeType;
 
   description: string | null;
 
   color: string;
   fuelType: string | null;
   gearType: string | null;
-
-  accidentHistory: number;
 
   images: string[];
   options: string[];
