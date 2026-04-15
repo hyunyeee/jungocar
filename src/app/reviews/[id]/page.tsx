@@ -50,11 +50,24 @@ export default async function ReviewDetailPage({ params }: ReviewDetailPageProps
         <div className="relative z-10 flex h-full items-center">
           <div className="mx-auto max-w-3xl px-4 text-center text-white">
             <h1 className="text-2xl font-bold md:text-3xl">{title.replaceAll('"', "")}</h1>
-
-            {content && <p className="mt-4 text-sm leading-relaxed md:text-base">{content}</p>}
           </div>
         </div>
       </section>
+
+      {content && (
+        <section className="bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-14 md:py-20">
+            <div className="rounded-3xl bg-neutral-50 px-6 py-8 shadow-sm md:px-10 md:py-12">
+              <p className="text-sm font-semibold tracking-[0.2em] text-neutral-500">
+                거래 후기 내용
+              </p>
+              <div className="mt-5 text-lg leading-9 whitespace-pre-wrap text-neutral-900 md:text-[1.35rem] md:leading-10">
+                {content}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* 이미지 리스트 */}
       {imageUrls && imageUrls.length > 0 && (
