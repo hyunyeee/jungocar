@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { postCustomerInfo, postMailCustomerInfo } from "@/lib/api/customer";
+import { postCustomerInfo } from "@/lib/api/customer";
 import { CustomerInfo } from "@/types/contact";
 import { InputLine } from "./InputLine";
 import { TermsContent } from "./TermsContent";
@@ -57,10 +57,6 @@ export default function CustomerInfoForm({ onSuccess }: Props) {
     } catch {
       alert("제출 실패");
     }
-
-    try {
-      await postMailCustomerInfo(customerData);
-    } catch {}
   };
 
   return (

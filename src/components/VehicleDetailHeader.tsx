@@ -1,5 +1,6 @@
 import { formatNumber } from "@/utils/formatNumber";
 import { VehicleDetail } from "@/types/vehiclePreview";
+import { getSupportFeeDisplay } from "@/utils/supportFee";
 
 export function VehicleDetailHeader(props: VehicleDetail) {
   const {
@@ -10,22 +11,17 @@ export function VehicleDetailHeader(props: VehicleDetail) {
     price,
     monthFee,
     supportFee,
+    supportFeeType,
     color,
     fuelType,
     gearType,
-    accidentHistory,
   } = props;
+  const supportFeeDisplay = getSupportFeeDisplay(supportFeeType);
 
   return (
     <header className="bg-white">
       <div className="container mx-auto flex flex-col gap-5 px-4 pt-12 pb-4 md:flex-row md:items-end md:justify-between">
         <div>
-          {accidentHistory === 0 && (
-            <span className="bg-main mb-3 inline-block rounded-full px-2 py-0.5 text-xs font-medium text-white">
-              무사고
-            </span>
-          )}
-
           <h1 className="mb-2 text-2xl font-semibold">
             {title} · {model}
           </h1>
@@ -44,10 +40,12 @@ export function VehicleDetailHeader(props: VehicleDetail) {
               <p className="mt-1.5 text-lg leading-none font-semibold">{formatNumber(price)}만원</p>
             </div>
 
-            {/* 승계 지원금 */}
+            {/* 지원금 / 인수금 */}
             <div className="text-center">
-              <p className="text-sm leading-tight text-neutral-500">승계지원금</p>
-              <p className="text-main mt-1.5 text-lg leading-none font-semibold">
+              <p className="text-sm leading-tight text-neutral-500">{supportFeeDisplay.label}</p>
+              <p
+                className={`${supportFeeDisplay.valueClassName} mt-1.5 text-lg leading-none font-semibold`}
+              >
                 {formatNumber(supportFee)}만원
               </p>
             </div>
