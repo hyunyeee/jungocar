@@ -13,7 +13,6 @@ import { ReviewSection } from "@/components/review/ReviewSection";
 import FloatingCustomerForm from "@/components/form/contact/FloatingCustomerForm";
 import { getReviews } from "@/lib/api/reviews";
 import { SHOW_VEHICLE_LIST } from "@/constants/featureFlags";
-import { VehicleListPlaceholder } from "@/components/VehicleListPlaceholder";
 
 export default async function Home() {
   const reviewData = await getReviews(0);
@@ -65,16 +64,10 @@ export default async function Home() {
       <ReviewSection reviews={reviews} />
 
       {/* 승계 리스트 */}
-      {SHOW_VEHICLE_LIST ? (
+      {SHOW_VEHICLE_LIST && (
         <Suspense fallback={null}>
           <VehiclesPreviewSection />
         </Suspense>
-      ) : (
-        <section className="bg-white">
-          <div className="container mx-auto px-4 py-16">
-            <VehicleListPlaceholder />
-          </div>
-        </section>
       )}
 
       {/*<FeatureGridSection />*/}

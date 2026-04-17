@@ -4,6 +4,8 @@ import Image from "next/image";
 import { getVehicleById } from "@/lib/api/vehicles";
 import { VehicleDetailHeader } from "@/components/VehicleDetailHeader";
 import { FinanceTabs } from "@/components/finance/FinanceTabs";
+import { SHOW_VEHICLE_LIST } from "@/constants/featureFlags";
+import { notFound } from "next/navigation";
 
 interface Params {
   params: {
@@ -12,6 +14,10 @@ interface Params {
 }
 
 export default async function VehicleDetail({ params }: Params) {
+  if (!SHOW_VEHICLE_LIST) {
+    notFound();
+  }
+
   const id = Number(params.id);
 
   const vehicle = await getVehicleById(id);

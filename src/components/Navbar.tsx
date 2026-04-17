@@ -4,8 +4,9 @@ import { useState, useRef, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { SHOW_VEHICLE_LIST } from "@/constants/featureFlags";
 
-const menus = [
+const baseMenus = [
   { label: "홈", link: "" },
   { label: "승계 가이드", link: "guide" },
   { label: "승계 차량 소개", link: "vehicle" },
@@ -15,6 +16,7 @@ const menus = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const menus = SHOW_VEHICLE_LIST ? baseMenus : baseMenus.filter((menu) => menu.link !== "vehicle");
 
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLUListElement>(null);

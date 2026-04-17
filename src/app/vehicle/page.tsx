@@ -5,21 +5,25 @@ import { VehicleCard } from "@/components/VehicleCard";
 import { getVehicles } from "@/lib/api/vehicles";
 import { Search } from "lucide-react";
 import { SHOW_VEHICLE_LIST } from "@/constants/featureFlags";
-import { VehicleListPlaceholder } from "@/components/VehicleListPlaceholder";
+import { notFound } from "next/navigation";
 
 interface Iparms {
   searchParams: Promise<{ page?: string }>;
 }
 
 export default async function Cars({ searchParams }: Iparms) {
+  if (!SHOW_VEHICLE_LIST) {
+    notFound();
+  }
+
   let page = Number((await searchParams).page);
 
   if (isNaN(page) || page < 1) {
     page = 1;
   }
 
-  const vehiclePage = SHOW_VEHICLE_LIST ? await getVehicles(page - 1) : null;
-  const vehicles = vehiclePage?.content ?? [];
+  const vehiclePage = await getVehicles(page - 1);
+  const vehicles = vehiclePage.content;
 
   return (
     <main>
@@ -33,29 +37,22 @@ export default async function Cars({ searchParams }: Iparms) {
       />
 
       <SectionWrapper type="white" className="space-y-8">
-        {SHOW_VEHICLE_LIST ? (
-          <>
-            <div className="flex flex-col items-start justify-between gap-3 md:flex-row md:items-center">
-              <p className="text-neutral-700">
-                총{" "}
-                <span className="font-semibold text-neutral-950">{vehiclePage?.totalElements}</span>
-                대의 차량이 있습니다.
-              </p>
+        <div className="flex flex-col items-start justify-between gap-3 md:flex-row md:items-center">
+          <p className="text-neutral-700">
+            총 <span className="font-semibold text-neutral-950">{vehiclePage.totalElements}</span>
+            대의 차량이 있습니다.
+          </p>
 
-              <CarSearchInput />
-            </div>
+          <CarSearchInput />
+        </div>
 
-            <div className="grid grid-cols-1 gap-6 text-start sm:grid-cols-2 lg:grid-cols-3">
-              {vehicles.map((vehicle) => (
-                <VehicleCard key={vehicle.id} {...vehicle} />
-              ))}
-            </div>
+        <div className="grid grid-cols-1 gap-6 text-start sm:grid-cols-2 lg:grid-cols-3">
+          {vehicles.map((vehicle) => (
+            <VehicleCard key={vehicle.id} {...vehicle} />
+          ))}
+        </div>
 
-            <Pagination current={page} total={vehiclePage?.totalPages ?? 1} />
-          </>
-        ) : (
-          <VehicleListPlaceholder description="현재 등록 차량을 정리 중입니다. 상담은 바로 가능하니 문의 주시면 빠르게 안내드릴게요." />
-        )}
+        <Pagination current={page} total={vehiclePage.totalPages} />
       </SectionWrapper>
     </main>
   );

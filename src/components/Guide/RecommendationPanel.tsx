@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Check } from "lucide-react";
 import { SCENARIOS, RECOMMENDATION_MAP, GuideMode } from "@/constants/guide";
+import { SHOW_VEHICLE_LIST } from "@/constants/featureFlags";
 
 interface RecommendationPanelProps {
   selectedId: string | null;
@@ -23,12 +24,14 @@ export function RecommendationPanel({ selectedId }: RecommendationPanelProps) {
           </p>
 
           <div className="mt-5 flex items-center gap-2">
-            <Link
-              href="/vehicle"
-              className="bg-main rounded-lg px-4 py-2 text-sm font-semibold text-white transition hover:scale-95"
-            >
-              승계 차량 둘러보기
-            </Link>
+            {SHOW_VEHICLE_LIST && (
+              <Link
+                href="/vehicle"
+                className="bg-main rounded-lg px-4 py-2 text-sm font-semibold text-white transition hover:scale-95"
+              >
+                승계 차량 둘러보기
+              </Link>
+            )}
             <Link
               href="/inquiry"
               className="rounded-lg border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold transition hover:scale-95"
@@ -72,12 +75,14 @@ export function RecommendationPanel({ selectedId }: RecommendationPanelProps) {
         </ul>
         {/* CTA 영역 */}
         <div className="mt-4 flex items-center justify-start gap-2">
-          <Link
-            href={cfg.cta.href}
-            className="bg-main max-w-fit rounded-lg px-4 py-2 text-center text-sm font-semibold text-white shadow transition hover:scale-95"
-          >
-            {cfg.cta.label}
-          </Link>
+          {SHOW_VEHICLE_LIST && (
+            <Link
+              href={cfg.cta.href}
+              className="bg-main max-w-fit rounded-lg px-4 py-2 text-center text-sm font-semibold text-white shadow transition hover:scale-95"
+            >
+              {cfg.cta.label}
+            </Link>
+          )}
           <Link
             href="/inquiry"
             className="rounded-lg border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold transition hover:scale-95"
